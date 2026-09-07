@@ -35,10 +35,13 @@ button { font: inherit; }
 
 .app-shell { width: min(100% - 40px, 640px); margin: 0 auto; padding: 28px 0 56px; }
 
-.app-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 38px; }
+.app-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 38px; }
 
 .brand { display: inline-flex; align-items: center; gap: 9px; color: var(--text); font-size: .78rem; font-weight: 700; letter-spacing: .09em; text-decoration: none; }
 .brand-mark { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 9px; background: var(--accent); color: #fff; font-size: .95rem; letter-spacing: 0; }
+.site-nav { display: flex; gap: 16px; margin-left: auto; }
+.site-nav a, .site-footer a { color: var(--muted); font-size: .78rem; text-decoration: none; }
+.site-nav a:hover, .site-footer a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
 .icon-button, .text-button { border: 0; background: transparent; color: var(--muted); cursor: pointer; }
 .icon-button { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; font-size: 1.15rem; transition: border-color .2s, color .2s, transform .2s; }
@@ -60,6 +63,17 @@ h2 { font-size: 1.15rem; }
 .generate-button { width: 100%; padding: 14px 20px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; cursor: pointer; font-weight: 700; transition: filter .2s, transform .2s; }
 .generate-button:hover:not(:disabled) { filter: brightness(.93); transform: translateY(-1px); }
 .generate-button:disabled { cursor: wait; opacity: .55; }
+
+.content-section { padding: 48px 4px 0; }
+.content-section > h2 { font-size: 1.45rem; }
+.content-lead { max-width: 560px; margin: 13px 0 0; color: var(--muted); font-size: .91rem; line-height: 1.8; }
+.guide-grid, .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; }
+.guide-card, .facts-grid article { padding: 20px 17px; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); }
+.guide-number { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+.guide-card h3, .facts-grid h3 { margin: 9px 0 7px; font-size: .95rem; }
+.guide-card p, .facts-grid p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.7; }
+.facts-section { padding-top: 36px; }
+.facts-grid { margin-top: 16px; }
 
 .history-section { padding: 36px 4px 0; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 14px; }
@@ -95,13 +109,33 @@ h2 { font-size: 1.15rem; }
 .comments-section noscript { display: block; padding: 0 0 24px; color: var(--muted); font-size: .86rem; text-align: center; }
 .comments-section noscript a { color: var(--accent); }
 
+.faq-section details { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.faq-section details:first-of-type { margin-top: 15px; border-top: 1px solid var(--line); }
+.faq-section summary { cursor: pointer; font-size: .9rem; font-weight: 700; }
+.faq-section details p { margin: 10px 0 0; color: var(--muted); font-size: .85rem; line-height: 1.75; }
+.site-footer { margin-top: 52px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .73rem; line-height: 1.7; text-align: center; }
+.site-footer p { margin: 0 0 10px; }
+.site-footer nav { display: flex; justify-content: center; gap: 14px; }
+
+.back-link { color: var(--muted); font-size: .8rem; text-decoration: none; }
+.back-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.policy-page { max-width: 760px; }
+.policy-content { padding: 8px 4px 48px; }
+.policy-content h1 { margin-bottom: 14px; }
+.policy-content h2 { margin-top: 34px; font-size: 1.2rem; }
+.policy-content p { color: var(--muted); font-size: .91rem; line-height: 1.85; }
+.policy-content .content-lead { color: var(--text); font-size: 1rem; }
+.policy-content .updated-date { margin-top: -5px; font-size: .78rem; }
+
 @media (max-width: 480px) {
   .app-shell { width: min(100% - 28px, 640px); padding-top: 18px; }
   .app-header { margin-bottom: 26px; }
+  .site-nav { display: none; }
   .picker-card { padding: 32px 18px 24px; }
   .balls-container { gap: 6px; }
   .ball { width: 43px; height: 43px; font-size: .95rem; }
   .history-item { gap: 8px; padding: 10px; }
   .contact-heading { display: block; }
   .contact-note { margin-top: 8px; }
+  .guide-grid, .facts-grid { grid-template-columns: 1fr; }
 }
