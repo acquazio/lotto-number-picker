@@ -7,6 +7,9 @@ const ballsContainer = document.getElementById("balls");
 const historyList = document.getElementById("historyList");
 const emptyHistory = document.getElementById("emptyHistory");
 const clearHistoryBtn = document.getElementById("clearHistoryBtn");
+const contactForm = document.getElementById("contactForm");
+const contactSubmit = document.getElementById("contactSubmit");
+const formStatus = document.getElementById("formStatus");
 
 function setTheme(isDark) {
   document.body.classList.toggle("dark-mode", isDark);
@@ -103,4 +106,30 @@ generateBtn.addEventListener("click", renderBalls);
 clearHistoryBtn.addEventListener("click", () => {
   localStorage.removeItem(HISTORY_KEY);
   renderHistory([]);
+});
+
+contactForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  contactSubmit.disabled = true;
+  formStatus.className = "form-status";
+  formStatus.textContent = "문의 전송 중입니다...";
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" },
+    });
+
+    if (!response.ok) throw new Error("Form submission failed");
+
+    contactForm.reset();
+    formStatus.classList.add("success");
+    formStatus.textContent = "문의가 전송되었습니다. 감사합니다!";
+  } catch {
+    formStatus.classList.add("error");
+    formStatus.textContent = "전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+  } finally {
+    contactSubmit.disabled = false;
+  }
 });
