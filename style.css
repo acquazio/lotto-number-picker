@@ -90,6 +90,11 @@ h2 { font-size: 1.15rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .honeypot { position: absolute; left: -9999px; }
 
+.comments-section { margin-top: 42px; padding: 28px 20px 4px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.comments-section .section-heading { margin-bottom: 22px; }
+.comments-section noscript { display: block; padding: 0 0 24px; color: var(--muted); font-size: .86rem; text-align: center; }
+.comments-section noscript a { color: var(--accent); }
+
 @media (max-width: 480px) {
   .app-shell { width: min(100% - 28px, 640px); padding-top: 18px; }
   .app-header { margin-bottom: 26px; }
